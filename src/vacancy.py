@@ -2,6 +2,11 @@ from typing import Any
 
 
 class Vacancy:
+    """
+    Класс для представления вакансии.
+    Использует __slots__ для ограничения атрибутов.
+    """
+
     __slots__ = ["name", "url", "salary", "description"]
 
     def __init__(self, name: str, url: str, salary: Any, description: str):

@@ -1,11 +1,14 @@
 import json
-from typing import List
 
 from src.file_handler import FileHandler
 from src.vacancy import Vacancy
 
 
 class JSONHandler(FileHandler):
+    """
+    Класс для работы с JSON-файлом хранения вакансий.
+    """
+
     def __init__(self, filename: str = "vacancies.json"):
         self.__filename = filename
 
@@ -17,7 +20,7 @@ class JSONHandler(FileHandler):
         data.append(vacancy)
         self._save(data)
 
-    def get_vacancies(self) -> List[Vacancy]:
+    def get_vacancies(self) -> list[Vacancy]:
         try:
             with open(self.__filename, "r", encoding="utf-8") as f:
                 raw = json.load(f)
@@ -30,6 +33,6 @@ class JSONHandler(FileHandler):
         data = [v for v in data if v.url != vacancy.url]
         self._save(data)
 
-    def _save(self, vacancies: List[Vacancy]):
+    def _save(self, vacancies: list[Vacancy]):
         with open(self.__filename, "w", encoding="utf-8") as f:
             json.dump([v.to_dict() for v in vacancies], f, ensure_ascii=False, indent=4)

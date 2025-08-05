@@ -1,10 +1,14 @@
 from abc import ABC, abstractmethod
-from typing import List
 
 from src.vacancy import Vacancy
 
 
 class FileHandler(ABC):
+    """
+    Абстрактный базовый класс для обработки файлов, предназначенный для хранения,
+    получения и удаления вакансий в файле.
+    """
+
     @abstractmethod
     def __init__(self, filename: str):
         pass
@@ -14,7 +18,7 @@ class FileHandler(ABC):
         pass
 
     @abstractmethod
-    def get_vacancies(self) -> List[Vacancy]:
+    def get_vacancies(self) -> list[Vacancy]:
         pass
 
     @abstractmethod

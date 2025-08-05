@@ -4,6 +4,9 @@ from src.json_handler import JSONHandler
 from src.utils import filter_vacancies, get_vacancies_by_salary, sort_vacancies, get_top_vacancies, print_vacancies
 
 def user_interaction():
+    """
+        Основной цикл взаимодействия с пользователем.
+    """
     api = HeadHunterAPI()
     storage = JSONHandler()
 

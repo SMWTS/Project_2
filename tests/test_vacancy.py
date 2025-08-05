@@ -1,4 +1,3 @@
-
 from src.vacancy import Vacancy
 
 
